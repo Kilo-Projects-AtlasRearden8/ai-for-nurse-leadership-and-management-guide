@@ -17,22 +17,23 @@ A beginner manual on AI for nurse managers and leaders, delivered as Markdown so
   - `index.html`, `staff-education.html`, `policy-drafts.html`, `meeting-prep.html`,
     `workload-planning.html`, `worksheets.html`, `disclaimer.html`
 - `build.py` — stdlib-only Python script converting `docs/*.md` to `site/*.html`
+- `test_build.py` — 8-test verification suite
 - `README.md` — overview, how to run, credits, license, disclaimer
 - `LICENSE` — MIT License
 - `STATUS.md` — this file
 
-**Audiences and topics covered**
-- Staff education on AI (huddle plan, ground rules)
+**Topics covered** (all four required areas)
+- Staff education on AI (huddle plan, ground rules, FAQ)
 - AI use policy drafts for a nursing unit
-- Meeting prep (agendas, talking points, anticipated questions)
+- Meeting prep (agendas, talking points, anticipated questions, follow-ups)
 - Workload planning (shift and assignment planning thinking partner)
 - Printable leadership worksheets (one per section + combined page)
-- Education only: no medical advice, no HR advice, no legal advice
 
 **Credit**
 - Written by Dylan Asdale, RN, founder of Asdale Dynamics, LLC (Indiana, formed October 2026).
-- Asdale Dynamics, LLC credited in `README.md` and on every page.
+- Asdale Dynamics, LLC credited in `README.md` and on every page footer.
 - `LICENSE` copyright line: `Copyright (c) 2026 Asdale Dynamics, LLC` (exact).
+- `README.md` credits Asdale Dynamics, LLC and links the MIT license.
 
 ## How to run it
 
@@ -42,22 +43,42 @@ No install, no server, no network, no secrets. Python 3 standard library only.
 python3 build.py
 ```
 
-This writes the HTML site into `site/`. Open `site/index.html` in any browser, or print any page to PDF (Ctrl+P / Command+P). Worksheets are styled to print cleanly (print CSS hides navigation/header/footer).
+This writes the HTML site into `site/`. Open `site/index.html` in any browser, or print any page to PDF (Ctrl+P / Command+P). Worksheets print cleanly (print CSS hides navigation/header/footer).
 
 ## Verification results
 
+Build and test suite both pass:
+
+```
+$ python3 build.py
+built index.html <- 00-overview.md
+...
+Built 7 pages into site/
+
+$ python3 test_build.py
+PASS test_build_runs
+PASS test_pages_exist
+PASS test_css_exists
+PASS test_pages_have_structure
+PASS test_license_copyright_line
+PASS test_readme_credits
+PASS test_no_github_workflows
+PASS test_no_secrets
+8/8 tests passed
+```
+
 - `python3 build.py` runs cleanly and builds all 7 HTML pages plus `assets/style.css`.
-- Every page has `<title>`, closing `</html>`, and links to `assets/style.css`.
+- `python3 test_build.py` passes 8/8 tests: build runs, all pages exist, CSS exists, every page has valid structure + Asdale Dynamics credit + education-only disclaimer, LICENSE copyright line is exact, README credits Asdale Dynamics, LLC, no `.github/workflows`, no secrets/API keys/personal data.
 - `LICENSE` line 3 is exactly `Copyright (c) 2026 Asdale Dynamics, LLC`.
-- `README.md` credits Asdale Dynamics, LLC (multiple places) and links the MIT license.
-- No `.github/workflows` directory or files.
-- No secrets, API keys, passwords, or personal data in any file (scanned for `api_key`, `secret`, `sk-`, `password`, `token` patterns — only prose mentions of "no secrets").
-- All markdown converts to HTML without errors (headings, tables, lists, code blocks, blockquotes, links).
+- All markdown converts to HTML without errors (headings, tables, lists, code blocks, blockquotes, links, horizontal rules).
 
 ## Known gaps
 
 - Site is static and single-folder (no search, no sitemap.xml, no RSS) — intentional, keeps it simple and printable.
 - Build script implements a small Markdown subset (headings, bold/italic, code, links, lists incl. task lists, blockquotes, tables, fenced code, horizontal rules). Unusual markdown edge cases may not convert perfectly.
-- No automated test suite; verification is manual (build run + structural grep checks).
-- Policy templates must be reviewed by the user's organization's legal/compliance/HR/nursing leadership before adoption (stated in disclaimer).
 - Not tested in a real browser; HTML/CSS is simple and standards-based.
+- Policy templates must be reviewed by the user's organization's legal/compliance/HR/nursing leadership before adoption (stated in disclaimer).
+
+## Git
+
+Initialized and committed as the existing git identity (Dylan Asdale). Plain commit message, no Co-authored-by trailers. Never pushed, no remote repo created, nothing published.

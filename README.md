@@ -1,38 +1,46 @@
 # AI for Nurse Managers and Leaders: A Beginner Manual
 
-Plain-English, step-by-step AI education for nurse managers, nurse leaders, and charge nurses. Covers staff education, policy drafts, meeting prep, and workload planning — with printable leadership worksheets.
+Plain-English, step-by-step AI education for nurse managers, nurse leaders, and charge nurses. Covers staff education, policy drafts, meeting prep, and workload planning — with printable leadership worksheets you can use right away.
 
 ## Who this is for
 
-Nurse managers and leaders who want to use AI tools safely and practically. No technical background required. Education only — this manual is **not medical advice, not HR advice, and not legal advice**.
+You're a nurse manager or leader and you keep hearing about AI. Maybe your staff are asking about it. Maybe your organization is talking about it. You don't need to be a coder or a tech person to use AI well — you just need a safe, simple starting point.
+
+This manual is written for nurse managers, nurse leaders, charge nurses, and anyone leading a nursing team. No technical background required.
+
+**Education only.** This manual is not medical advice, not HR advice, and not legal advice. It will never tell you how to care for a patient or how to manage a person. See the disclaimer.
 
 ## What's inside
 
-| Section | Contents |
-|---------|----------|
-| `docs/` | Markdown source of the beginner manual |
-| `site/` | Static HTML site (built with `build.py`) |
-| `build.py` | Stdlib-only Python script that builds `site/` from `docs/` |
-| `LICENSE` | MIT License |
-| `STATUS.md` | Build report: what was built, how to run it, verification results |
+| Section | What you'll do |
+|---------|----------------|
+| Staff education | Run a 30-minute AI huddle with your team, set ground rules, answer common questions |
+| Policy drafts | Draft a fill-in-the-blank AI use policy for your unit and adopt it step by step |
+| Meeting prep | Use AI to draft agendas, talking points, anticipated questions, and follow-ups |
+| Workload planning | Use AI as a thinking partner for shifts and assignments (you still make the calls) |
+| Printable worksheets | One worksheet per section, plus a combined page you can print and fill in by hand |
+
+Each section is plain English, step by step, and ends with a printable worksheet.
+
+## Repository contents
+
+- `docs/` — Markdown source of the beginner manual
+- `site/` — the finished static HTML site (7 pages + stylesheet)
+- `build.py` — builds `site/` from `docs/` (Python standard library only)
+- `test_build.py` — verifies the build and site structure
+- `LICENSE` — MIT License
+- `README.md` — this file
+- `STATUS.md` — what was built, how to run it, verification results, known gaps
 
 ## How to run the site
 
-No install, no server, no secrets. Standard Python 3 only.
+No install, no server, no account, no secrets. You just need Python 3.
 
 ```bash
 python3 build.py
 ```
 
-This writes HTML files into `site/`. Open `site/index.html` in any browser, or print any page to PDF (Ctrl+P / Command+P). Worksheets are formatted to print cleanly.
-
-## Topics
-
-- **Staff education** — running a 30-minute AI huddle, ground rules, common questions
-- **Policy drafts** — a fill-in-the-blank AI use policy template and adoption steps
-- **Meeting prep** — agendas, talking points, anticipated questions, follow-ups
-- **Workload planning** — AI as a thinking partner for shift and assignment planning
-- **Printable worksheets** — one worksheet per section, plus a combined worksheets page
+This writes HTML files into `site/`. Open `site/index.html` in any browser. To print, open any page and press Ctrl+P (or Command+P) — worksheets print cleanly, with navigation hidden.
 
 ## Credit
 

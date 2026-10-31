@@ -26,10 +26,6 @@ PAGES = [
     ("06-disclaimer.md", "disclaimer.html", "Disclaimer: Education Only", "Disclaimer", 7),
 ]
 
-SITE_NAME = "Asdale Dynamics, LLC"
-COPYRIGHT = "Copyright (c) 2026 Asdale Dynamics, LLC"
-
-
 def md_to_html(text: str) -> str:
     """Convert a subset of Markdown to HTML."""
     lines = text.split("\n")
