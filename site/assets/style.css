@@ -1,0 +1,93 @@
+/* Asdale Dynamics, LLC — AI for Nurse Managers & Leaders */
+:root {
+  --ink: #111827;
+  --muted: #4b5563;
+  --bg: #ffffff;
+  --paper: #fafafa;
+  --line: #e5e7eb;
+  --accent: #0f6b4c;
+  --accent-hover: #0d5a3f;
+  --warn: #7f1d1d;
+  --bg-warn: #fef2f2;
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
+  color: var(--ink);
+  background: var(--bg);
+  line-height: 1.6;
+}
+.wrapper { max-width: 900px; margin: 0 auto; padding: 0 20px; }
+
+/* Header */
+.site-header {
+  background: var(--accent);
+  color: #fff;
+  border-bottom: 1px solid rgba(255,255,255,0.3);
+}
+.site-header .wrapper { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 14px 20px; }
+.brand { font-weight: 700; font-size: 1.25rem; color: #fff; text-decoration: none; }
+.nav-list { display: flex; gap: 16px; list-style: none; margin: 0; padding: 0; }
+.nav-list a { color: #d1fae5; text-decoration: none; font-size: 0.95rem; padding: 6px 10px; border-radius: 6px; }
+.nav-list a:hover, .nav-list a.active { background: rgba(255,255,255,0.15); color: #fff; }
+
+/* Main */
+main { display: grid; grid-template-columns: 1fr 260px; gap: 32px; padding: 32px 0; }
+article h1 { font-size: 1.75rem; margin: 0 0 4px 0; letter-spacing: -0.01em; }
+article h2 { font-size: 1.35rem; margin: 32px 0 10px 0; border-bottom: 1px solid var(--line); padding-bottom: 6px; }
+article h3 { font-size: 1.15rem; margin: 24px 0 8px 0; }
+article h4 { font-size: 1.05rem; margin: 20px 0 6px 0; }
+article p { margin: 0 0 14px 0; }
+article ul, article ol { margin: 6px 0 14px 0; padding-left: 22px; }
+article li { margin-bottom: 6px; }
+article table { width: 100%; border-collapse: collapse; margin: 14px 0; font-size: 0.95rem; }
+article th, article td { border: 1px solid var(--line); padding: 8px 10px; text-align: left; }
+article th { background: var(--paper); font-weight: 600; }
+article code { background: var(--paper); padding: 1px 6px; border-radius: 4px; font-family: ui-monospace, SFMono-Regular, Consolas, monospace; font-size: 0.9em; }
+article pre { background: #1e293b; color: #e2e8f0; padding: 14px; border-radius: 8px; overflow-x: auto; margin: 14px 0; }
+article pre code { background: inherit; color: inherit; padding: 0; }
+article blockquote { border-left: 4px solid var(--accent); margin: 14px 0; padding: 10px 16px; background: var(--paper); font-style: italic; }
+article hr { border: none; border-top: 1px solid var(--line); margin: 24px 0; }
+
+.meta { color: var(--muted); font-size: 0.9rem; margin: 4px 0 20px 0; }
+
+/* Aside */
+aside h3 { font-size: 1rem; margin-top: 0; border-bottom: 1px solid var(--line); padding-bottom: 6px; }
+aside ul { list-style: none; padding: 0; margin: 10px 0 16px 0; }
+aside li { margin-bottom: 6px; }
+aside a { color: var(--accent); text-decoration: none; }
+aside a:hover { text-decoration: underline; }
+aside .small { font-size: 0.85rem; color: var(--muted); }
+
+/* Footer */
+.site-footer { border-top: 1px solid var(--line); padding: 24px 0; margin-top: 40px; }
+.site-footer .wrapper { display: flex; flex-direction: column; gap: 6px; font-size: 0.9rem; color: var(--muted); }
+
+/* Worksheet blocks */
+article pre, article code {
+  /* worksheet monospace blocks keep their look on screen and paper */
+}
+.print-hide { display: block; }
+
+/* Callout boxes */
+.callout { border-left: 4px solid var(--accent); background: #f0fdfa; padding: 12px 16px; margin: 16px 0; border-radius: 0 8px 8px 0; }
+.callout.warn { border-left-color: var(--warn); background: var(--bg-warn); }
+
+/* Print */
+@media print {
+  .print-hide, .site-header, .site-footer, nav, aside { display: none !important; }
+  body { background: #fff; color: #000; }
+  a { color: #000; text-decoration: none; }
+  article { margin: 0; padding: 0; }
+  article h2 { border-bottom: 1px solid #000; }
+  pre, blockquote, table { page-break-inside: avoid; }
+  @page { margin: 18mm; }
+}
+@media (max-width: 720px) {
+  main { grid-template-columns: 1fr; }
+  aside { display: none; }
+  .site-header .wrapper { flex-direction: column; align-items: stretch; gap: 10px; }
+  .nav-list { justify-content: center; }
+}
